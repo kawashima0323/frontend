@@ -1,15 +1,19 @@
 <template>
+<v-app>
   <Header />
+  </v-app>
+ 
 </template>
 
 <script>
 // @ is an alias to /src
-import Header from '@/components/Header.vue'
-
+import Header from './components/Header.vue'
 export default {
   name: 'HomeView',
   components: {
-    Header
+    Header,
+
+
   }
 }
 </script>
@@ -36,3 +40,4 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+5iu

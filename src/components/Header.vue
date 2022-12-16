@@ -1,67 +1,73 @@
 <template>
   <header>
-    <div id="header-top">
-    <img alt="Vue logo" src="../assets/キャリーバッグ.jpeg">
-    <h1>お出かけ支援サイト</h1>
-    </div>
-    <nav>
-      <router-link to="/">トップ</router-link> |
-      <router-link to="/about">おでかけ</router-link> |
-      <router-link to="/login">経路検索</router-link> |
-      <router-link to="/sandbox/313">店舗検索</router-link> |
-      <router-link to="/sandbox/さんびゃくじゅうさん">カレンダー</router-link> |
-      <router-link to="/sandbox/さんびゃくじゅうさん"></router-link> 
-    </nav>
+    <v-app-bar
+      app
+      dark
+    >
+      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+      <v-toolbar-title>MyPortfolioSite</v-toolbar-title>
+      <v-tabs>
+        <v-tab
+        >
+        </v-tab>
+      </v-tabs>
+    </v-app-bar>
+    <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      temporary
+    >
+      <v-list
+        nav
+        dense
+      >
+     <v-list>
+  <v-list-item-group>
+    <v-list-item>
+      <v-list-item-title>アイテム1</v-list-item-title>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-title>アイテム2</v-list-item-title>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-title>アイテム3</v-list-item-title>
+    </v-list-item>
+  </v-list-item-group>
+</v-list>
+      </v-list>
+    </v-navigation-drawer>
   </header>
 </template>
-
-
-<style scoped>
-header{
-    background: rgb(183, 183, 223);
-    padding:0%;
-    margin: 0%;
+ 
+<script>
+ 
+export default {
+  name: 'AppHeader',
+  data () {
+    return {
+      drawer: false,
+    }
+  }
 }
-img{
-  height: 20px;
+</script>
+ 
+<style lang="scss" scoped>
+.v-toolbar__title {
+  overflow: visible !important;
+  margin-right: 50px !important;
 }
-nav{
-border-bottom: 5px solid #ccc;
-position: relative;
+ 
+.v-app-bar__nav-icon {
+  @include display_pc {
+    display: none !important;
+  }
 }
-nav ul{
-position: absolute;
-left:10%;
-display: table;
-margin: 0 auto;
-padding: 0;
-width: 80%;
-text-align: center;
-}
-nav ul li{
-display: table-cell;
-min-width: 50px;
-}
-nav ul li a{
-display: block;
-width: 100%;
-height: 100%;
-padding: 10px 0;
-text-decoration: none;
-color: #aaa;
-}
-nav ul li.current{
-font-weight: bold;
-border-top: 5px solid #00B0F0;
-}
-nav ul li.current a{
-color: #00B0F0;
-}
-nav ul li a:hover{
-color: #0089BB;
-background-color: #FBFBDD;
-}
-nav ul li:hover{
-border-top: 5px solid #F8E750;
+ 
+.v-tabs {
+  display: none;
+ 
+  @include display_pc {
+    display: block !important;
+  }
 }
 </style>

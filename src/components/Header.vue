@@ -1,73 +1,85 @@
 <template>
-  <header>
-    <v-app-bar
-      app
+  <div>
+    <v-toolbar
       dark
+      prominent
     >
-      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-      <v-toolbar-title>MyPortfolioSite</v-toolbar-title>
-      <v-tabs>
-        <v-tab
-        >
-        </v-tab>
-      </v-tabs>
-    </v-app-bar>
+    <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+
+      <v-toolbar-title></v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-export</v-icon>
+      </v-btn>
+    </v-toolbar>
+
     <v-navigation-drawer
-      v-model="drawer"
+    v-model="drawer"
       absolute
+      bottom
       temporary
+      height="400"
+    width="256"
+
     >
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="text-h6">
+            お出かけ支援サイト
+          </v-list-item-title>
+          <v-list-item-subtitle>
+            メニュー
+          </v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
       <v-list
-        nav
         dense
+        nav
       >
-     <v-list>
-  <v-list-item-group>
-    <v-list-item>
-      <v-list-item-title>アイテム1</v-list-item-title>
-    </v-list-item>
-    <v-list-item>
-      <v-list-item-title>アイテム2</v-list-item-title>
-    </v-list-item>
-    <v-list-item>
-      <v-list-item-title>アイテム3</v-list-item-title>
-    </v-list-item>
-  </v-list-item-group>
-</v-list>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
-  </header>
+
+  </div>
 </template>
- 
+
+
 <script>
- 
-export default {
-  name: 'AppHeader',
-  data () {
-    return {
+  export default {
+    data: () => ({
       drawer: false,
-    }
+      group: null,
+      items: [
+          { title: 'ホーム', icon: 'mdi-home' },
+          { title: 'カレンダー', icon: 'mdi-calendar' },
+          { title: '乗車検索', icon: 'mdi-train' },
+          { title: '店検索', icon: 'mdi-store' },
+          { title: '天気予報', icon: 'mdi-weather-partly-cloudy' }
+        ],
+        right: null,
+    }),
+
+    watch: {
+      group () {
+        this.drawer = false
+      },
+    },
   }
-}
 </script>
- 
-<style lang="scss" scoped>
-.v-toolbar__title {
-  overflow: visible !important;
-  margin-right: 50px !important;
-}
- 
-.v-app-bar__nav-icon {
-  @include display_pc {
-    display: none !important;
-  }
-}
- 
-.v-tabs {
-  display: none;
- 
-  @include display_pc {
-    display: block !important;
-  }
-}
-</style>

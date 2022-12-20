@@ -8,7 +8,7 @@
             width="40px"
             prepend-icon="mdi-account-circle"
             label="ユーザ名"
-            v-model="user"
+            v-model="userId"
           />
           <v-text-field
             v-bind:type="showPassword ? 'text' : 'password'"
@@ -37,7 +37,6 @@ export default {
   }),
   methods: {
     login() {
-      console.log("1");
       this.$store.dispatch("login", {
         userId: this.userId,
         password: this.password,

@@ -30,6 +30,10 @@ export default new Vuex.Store({
 
             try {
                 const loginResult = await axios.post(' http://localhost:3000/login', param);
+                console.log("userid" + userId);
+                console.log("pass" + password);
+                console.log(loginResult);
+                console.log(loginResult.data)
                 if (loginResult.data === 'OK') {
                     // 認証に成功した場合
                     commit('login', param);

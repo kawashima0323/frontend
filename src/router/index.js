@@ -19,10 +19,10 @@ const routes = [{
             import ('../views/LoginView.vue')
     },
     {
-        path: '/sandbox/:hoge2',
-        name: 'sandbox',
+        path: '/calendar',
+        name: 'calendar',
         component: () =>
-            import ('../views/SandBoxView.vue')
+            import ('../views/CalendarView.vue')
     },
     {
         path: '/sandbox/:hogeId',

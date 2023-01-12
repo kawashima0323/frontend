@@ -1,6 +1,6 @@
 <template>
 <v-app>
-  <router-link to="/"></router-link>
+  <router-link to="/calendar"></router-link>
   <router-view/>
 </v-app>
 </template>
